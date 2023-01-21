@@ -8,7 +8,7 @@
                  class="rounded-circle" alt="laravel logo">
         </div>
         <div class="col-9 pt-5">
-            <div><h1>laravelcamp</h1></div>
+            <div><h1>{{ $user->username }}</h1></div>
             <div class="d-flex">
                 <div style="padding-right: 8px"><strong>153</strong> posts </div>
                 <div style="padding-right: 8px"><strong>23K</strong> followers</div>
