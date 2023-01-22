@@ -14,10 +14,9 @@
                 <div style="padding-right: 8px"><strong>23K</strong> followers</div>
                 <div style="padding-right: 8px"><strong>212</strong> following</div>
             </div>
-            <div class="pt-4" style="font-weight: bold">laravel framework</div>
-            <div>Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation —
-                freeing you to create without sweating the small things.</div>
-            <div><a href="https://laravel.com/">laravel.com</a></div>
+            <div class="pt-4" style="font-weight: bold">{{$user->profile->title}}</div>
+            <div>{{$user->profile->description}}</div>
+            <div><a href="https://laravel.com/">{{$user->profile->url}}</a></div>
 
         </div>
     </div>
