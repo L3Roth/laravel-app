@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -25,11 +26,20 @@ class PostsController extends Controller
 
         $imagePath = request('image')->store('uploads', 'public');
 
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200, 1200);
+        $image->save();
+
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'image' => $imagePath,
         ]);
 
         return redirect('/profile/' . auth()->user()->id);
+    }
+
+    public function show(\App\Models\Post $post)  //this is called Route Model Binding (route and model have the same name)
+    {
+        return view('posts.show', compact('post'));
+        //compact('post') is a shortcut for ['post' => $post] you can pass as many strings than you need
     }
 }
