@@ -8,7 +8,10 @@
                  class="rounded-circle" alt="laravel logo">
         </div>
         <div class="col-9 pt-5">
-            <div><h1>{{ $user->username }}</h1></div>
+            <div class="d-flex justify-content-between align-items-baseline">
+                <h1>{{ $user->username }}</h1>
+                <a href="/p/create">Add new post</a>
+            </div>
             <div class="d-flex">
                 <div style="padding-right: 8px"><strong>153</strong> posts </div>
                 <div style="padding-right: 8px"><strong>23K</strong> followers</div>
@@ -20,19 +23,13 @@
 
         </div>
     </div>
-    <div class="row pt-4">
-        <div class="col-4">
-            <img src="https://ih1.redbubble.net/image.457036478.8309/ssrco,classic_tee,mens,fafafa:ca443f4786,front_alt,square_product,600x600.u2.jpg"
-                 class="w-100" alt="dummy content image">
-        </div>
-        <div class="col-4">
-            <img src="https://ih1.redbubble.net/image.457036478.8309/ssrco,classic_tee,mens,fafafa:ca443f4786,front_alt,square_product,600x600.u2.jpg"
-                 class="w-100" alt="dummy content image">
-        </div>
-        <div class="col-4">
-            <img src="https://ih1.redbubble.net/image.457036478.8309/ssrco,classic_tee,mens,fafafa:ca443f4786,front_alt,square_product,600x600.u2.jpg"
-                 class="w-100" alt="dummy content image">
-        </div>
+    <div class="row pt-5">
+        @foreach($user->posts as $post)
+            <div class="col-4 pb-4">
+                <img src="/storage/{{$post->image}}"
+                     class="w-100" alt="dummy content image">
+            </div>
+        @endforeach
     </div>
 </div>
 @endsection
