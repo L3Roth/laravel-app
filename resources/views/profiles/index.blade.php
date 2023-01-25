@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://assets.bigcartel.com/theme_images/54651347/laravel-logo.png?auto=format&fit=max&h=200&w=1068"
-                 class="rounded-circle" alt="laravel logo">
+            <img src="{{ $user->profile->profileImage() }}"
+                 class="rounded-circle w-100" alt="laravel logo">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
