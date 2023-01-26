@@ -13,6 +13,16 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $users = auth()->user()->following()->pluck('profiles.user_id'); //auth user gets every user id from every user it is following
+
+        //latest() orders post by creation date in desc order paginate displays only a set number of posts per page
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+
+        return view('posts.index', compact('posts'));
+    }
+
     public function create()
     {
         return view('posts.create');
