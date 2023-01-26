@@ -8,10 +8,12 @@ use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
-    public function index(\App\Models\User $user)
+    public function index(\App\Models\User $user) //$user = User::findOrFail($user); no longer needed bc route model binding
     {
-        //$user = User::findOrFail($user); no longer needed bc route model binding
-        return view('profiles.index', compact('user'));
+        //contains that authenticated users following that user the method got as param otherwise return false
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+        return view('profiles.index', compact('user', 'follows'));
     }
 
     public function edit(\App\Models\User $user)
