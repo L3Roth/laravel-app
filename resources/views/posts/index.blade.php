@@ -10,8 +10,8 @@
                     </a>
                 </div>
             </div>
-            <div class="row pt-6 pb-3">
-                <div class="col-4 offset-4">
+            <div class="row pt-2 pb-4">
+                <div class="col-6 offset-3">
                     <div>
                         <p>
                             <span style="font-weight: bold">
